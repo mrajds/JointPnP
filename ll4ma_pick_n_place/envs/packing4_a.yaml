@@ -1,0 +1,41 @@
+objects:
+   - can
+   - pitcher
+   - pringle
+   - mustard
+
+can:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -2.8
+   position:
+      x: 0.23
+      y: 0.33
+
+pitcher:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 2.3
+   position:
+      x: 0.37
+      y: 0.385
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.33
+      y: 0.51
+
+mustard:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+   position:
+      x: 0.21
+      y: 0.48

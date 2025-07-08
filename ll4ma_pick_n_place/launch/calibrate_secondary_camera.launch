@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="calibrate_robot"   default="true"/>
+  <arg name="fake_joint_state"  default="false"/> <!-- Set true if not hooked up to robot -->
+  <arg name="launch_camera"     default="false"/> <!-- launch Kinect2 if true -->
+  
+  <arg name="camera_link"       default="camera2_link"/>  
+  <arg name="camera_topic"      default="/camera2/color/image_raw"/>
+  <arg name="camera_info_topic" default="/camera2/color/camera_info"/>
+  
+  <arg name="calibration_file"
+       default="$(find robot_aruco_calibration)/config/iiwa_sec_realsenseD415_calibration.yaml"/>
+  <arg name="rviz_config"
+       default="$(find robot_aruco_calibration)/config/iiwa_realsenseD415_calibration.rviz"/>
+  
+  <!-- ======================================================================================= -->
+
+  <include file="$(find robot_aruco_calibration)/launch/calibrate_iiwa.launch">
+    <arg name="calibrate_robot"   value="$(arg calibrate_robot)"/>
+    <arg name="camera_link"       value="$(arg camera_link)"/>
+    <arg name="camera_topic"      value="$(arg camera_topic)"/>
+    <arg name="camera_info_topic" value="$(arg camera_info_topic)"/>
+    <arg name="fake_joint_state"  value="$(arg fake_joint_state)"/>
+    <arg name="calibration_file"  value="$(arg calibration_file)"/>
+    <arg name="rviz_config"       value="$(arg rviz_config)"/>
+    <arg name="marker_id"         value="2" />
+    <arg name="marker_to_robot_pose" value="0 -0.230 -0.62 0 0 0 1" />
+  </include>
+
+  <group if="$(arg launch_camera)">
+    <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+      <arg name="output" value="log"/>  <!-- set to 'screen' to get terminal output -->
+      <arg name="publish_tf" value="true"/>
+    </include>
+  </group>
+
+</launch>

@@ -1,0 +1,51 @@
+objects:
+   - ball
+   - juice
+   - lego
+   - pringle
+   - sugar
+
+ball:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.08
+      y: 0.05
+
+juice:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.065
+      y: 0.2
+
+lego:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.6
+   position:
+      x: 0.23
+      y: 0.07
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.35
+      y: 0.17
+
+sugar:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.8
+   position:
+      x: 0.31
+      y: 0.4

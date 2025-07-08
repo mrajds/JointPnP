@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ll4ma_planner" default="false" doc="launch ll4ma_planner?[Default:false]" />
+  <arg name="moveit_planner" default="true" doc="load moveit_config?[Default:true]" />
+  <arg name="publish_table_frame" default="true" doc="publish table frame?[Default:true]" />
+  <arg name="camera" default="realsense" doc="camera used:[Default:realsense / azure]" />
+  <arg name="env_yaml" default="None" />
+
+  <!-- <node name="world_table_static_tf" pkg="tf" type="static_transform_publisher" args="-0.305 0.91125 0.755 0 0 -0.7071068 0.7071068 world place_table_corner 100" respawn="true" if="$(arg publish_table_frame)" /> -->
+
+  <node name="world_table_static_tf" pkg="tf" type="static_transform_publisher" args="1.055 0.925 0.735 0 0 -1.0 0 world place_table_corner 100" respawn="true" if="$(arg publish_table_frame)" />
+
+<arg name="calibration_yaml" value="$(find robot_aruco_calibration)/config/iiwa_realsenseD415_calibration.yaml" if="$(eval arg('camera') == 'realsense')"/>
+
+<arg name="calibration_yaml" value="$(find robot_aruco_calibration)/config/iiwa_azure_calibration.yaml" if="$(eval arg('camera') == 'azure')"/>
+
+<group ns="left">
+  <param name="robot_description" command="
+					   $(find xacro)/xacro '$(find ll4ma_robots_description)/robots/iiwa.robot.xacro'
+					   arm_name:=iiwa
+					   hand_name:=reflex
+					   end_effector:=reflex
+					   use_robot_table:=true
+					   actuate_reflex:=true
+					   calibration_yaml:=$(arg calibration_yaml)
+					   --inorder"/>
+  <group if="$(arg moveit_planner)">
+    <include file="$(find iiwa_reflex_moveit_config)/launch/planning_context.launch">
+      <arg name="load_robot_description" value="false"/>
+    </include>
+
+    <include file="$(find iiwa_reflex_moveit_config)/launch/move_group.launch">
+      <arg name="allow_trajectory_execution" value="true"/>
+      <arg name="fake_execution" value="false"/>
+      <arg name="info" value="true"/>
+      <arg name="debug" value="false"/>
+      <arg name="pipeline" value="ompl"/>
+      <arg name="load_robot_description" value="false"/>
+    </include>
+  </group>
+  <node name="moveit_server_node" pkg="ll4ma_pick_n_place" type="moveit_server.py" output="screen" />
+  <param name="env_yaml" value="$(find ll4ma_pick_n_place)/envs/$(arg env_yaml)" type="string" unless="$(eval arg('env_yaml')=='None')" />
+  </group>
+  
+  <node name="ll4ma_pnp_rviz" pkg="rviz" type="rviz" args="-d $(find ll4ma_pick_n_place)/configs/pick_n_place.rviz" />
+
+  <!-- param name="~num_grasps_per_object" type="int" value="80" /-->
+  <!--node name="trajectory_smoothing_server" pkg="trajectory_smoothing" type="service" respawn="true" /-->
+	
+  <include file="$(find ll4ma_planner)/launch/ee_planner.launch" if="$(arg ll4ma_planner)" />
+
+  <node name="gen_voxel_node" pkg="prob_grasp_planner" type="gen_voxel_from_pcd" output="screen"> 
+    <param name="camera_frame_id" value="kinect2_rgb_optical_frame" 
+           type="string"/>
+  </node>
+
+
+  <group if="$(eval arg('camera') == 'realsense')">
+    <include file="$(find point_cloud_segmentation)/launch/table_obj_segmenter.launch">
+      <arg name="use_region_visualizer" value="true" />
+      <arg name="yaml_config" value="$(find ll4ma_pick_n_place)/configs/segment_config.yaml" />
+      <arg name="real_pcd_topic" value="/camera/depth/color/points" />
+      <arg name="real_rgb_topic" value="/camera/color/image_raw" />
+      <arg name="real_depth_topic" value="/camera/depth/image_rect_raw" />
+      <arg name="real_sd_pcd_topic" value="/camera/depth/color/points" />
+      <arg name="real_sd_rgb_topic" value="/camera/color/image_raw" />
+      <arg name="real_sd_depth_topic" value="/camera/depth/image_rect_raw" />
+      <arg name="real_frame_id" value="camera_link" />
+      <arg name="table_r" value="233" />
+      <arg name="table_g" value="185" />
+      <arg name="table_b" value="110" />
+    </include>
+  </group>
+
+  <group if="$(eval arg('camera') == 'azure')">
+    <include file="$(find point_cloud_segmentation)/launch/table_obj_segmenter.launch">
+      <arg name="use_region_visualizer" value="true" />
+      <arg name="yaml_config" value="$(find ll4ma_pick_n_place)/configs/segment_config.yaml" />
+      <arg name="real_pcd_topic" value="/points2" />
+      <arg name="real_rgb_topic" value="/rgb/image_raw" />
+      <arg name="real_depth_topic" value="/depth/image_raw" />
+      <arg name="real_sd_pcd_topic" value="/points2" />
+      <arg name="real_sd_rgb_topic" value="/rgb/image_raw" />
+      <arg name="real_sd_depth_topic" value="/depth/image_raw" />
+      <arg name="real_frame_id" value="camera_base" />
+      <arg name="table_r" value="233" />
+      <arg name="table_g" value="185" />
+      <arg name="table_b" value="110" />
+    </include>
+  </group>
+
+	
+  <node name="broadcast_tf_node" pkg="prob_grasp_planner" type="broadcast_tf.py" output="screen" respawn="true" />
+
+  <!-- Driver and Interface Nodes for Reflex Hand -->
+  <!--include file="$(find ll4ma_robot_interface)/launch/reflex_grasp_interface.launch">
+    <arg name="launch_driver" value="false" />
+    </include-->
+
+  <!-- rosparam command="load" file="$(find iiwa_reflex_moveit_config)/config/kinematics.yaml"/ -->
+
+  <!-- node name="moveit_server_node" pkg="ll4ma_pick_n_place" type="moveit_server.py" output="screen" / -->
+	
+</launch>

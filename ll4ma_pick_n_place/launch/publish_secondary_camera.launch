@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="debug"            default="false"/> <!-- Set true to visualize in rviz -->
+  <arg name="fake_joint_state" default="false"/> <!-- Set true if robot is not running -->
+  <arg name="load_robot_description" default="false"/>
+  
+  <arg name="calibration_file"
+       default="$(find robot_aruco_calibration)/config/iiwa_sec_realsenseD415_calibration.yaml"/>
+  <arg name="rviz_config"
+       default="$(find robot_aruco_calibration)/config/iiwa_realsenseD415_calibration.rviz"/>
+  
+  <!-- ======================================================================================= -->
+
+  <node name="base_to_sec_camera_tf_pub" pkg="robot_aruco_calibration"
+	type="publish_calibration_tf.py" respawn="false" output="screen">
+    <param name="calibration_file" value="$(arg calibration_file)"/>
+  </node>
+
+</launch>

@@ -1,0 +1,72 @@
+objects:
+   - sugar
+   - pringle
+   - cracker
+   - coffee
+   - lego
+   - mustard
+   - ball
+
+sugar:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -1.57
+   position:
+      x: 0.02
+      y: 0.05
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.12
+      y: 0.04
+
+cracker:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.71
+   position:
+      x: 0.35
+      y: 0.09
+
+coffee:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.06
+      y: 0.20
+
+lego:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 1.9
+   position:
+      x: 0.2
+      y: 0.15
+
+mustard:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 2.1
+   position:
+      x: 0.35
+      y: 0.25
+
+ball:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.08
+      y: 0.35
+

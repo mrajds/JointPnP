@@ -1,0 +1,61 @@
+objects:
+   - mustard
+   - pringle
+   - bleach
+   - can
+   - pitcher
+   - sugar
+
+mustard:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -1.57
+   position:
+      x: 0.39
+      y: 0.065
+
+can:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 3.14
+   position:
+      x: 0.10
+      y: 0.50
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.22
+      y: 0.315
+
+bleach:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -1.57
+   position:
+      x: 0.07
+      y: 0.32
+      
+pitcher:
+   orientation:
+      x: -0.1
+      y: 0.0
+      z: -1.57
+   position:
+      x: 0.33
+      y: 0.25
+
+sugar:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.707
+   position:
+      x: 0.22
+      y: 0.16

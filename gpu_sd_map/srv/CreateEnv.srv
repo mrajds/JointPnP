@@ -1,0 +1,6 @@
+string env_name
+float64[] dimension
+int64 resolution
+geometry_msgs/Pose world_trans
+---
+bool success

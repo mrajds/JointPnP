@@ -1,0 +1,3 @@
+---
+bool success
+moveit_msgs/RobotTrajectory plan

@@ -1,0 +1,61 @@
+objects:
+   - coffee
+   - lego
+   - cracker
+   - juice
+   - bleach
+   - pringle
+
+coffee:
+   orientation:
+      x: -0.2
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.08
+      y: 0.08
+
+lego:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.33
+   position:
+      x: 0.35
+      y: 0.1
+
+cracker:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.1
+      y: 0.28
+
+juice:
+   orientation:
+      x: -0.1
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.25
+      y: 0.40
+
+bleach:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.35
+      y: 0.52
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.10
+      y: 0.52

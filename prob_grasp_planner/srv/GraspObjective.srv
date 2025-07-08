@@ -1,0 +1,9 @@
+float32[] grasp_config
+string prior_name
+int32[] sparse_voxel_grid
+int32[] voxel_grid_dim
+float32[] object_size
+---
+float32 posterior
+float32 likelihood
+float32 prior

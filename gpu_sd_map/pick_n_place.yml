@@ -1,0 +1,11 @@
+name: pnp
+channels:
+  - pytorch
+  - nvidia
+  - anaconda
+  - defaults
+dependencies:
+  - cudatoolkit=11.3.1
+  - python=3.9
+  - pytorch=1.13.1
+prefix: /home/mohanraj/miniconda3/envs/pnp

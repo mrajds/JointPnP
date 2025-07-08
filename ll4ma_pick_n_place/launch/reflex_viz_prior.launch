@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ll4ma_robots_description)/launch/load_virtual_reflex.launch">
+    <arg name="rviz" value="False" />
+    <arg name="virtual_ns" value="ref1"/>
+    <arg name="parent_tf" value="/mdn_mean_1"/>
+  </include>
+
+  <include file="$(find ll4ma_robots_description)/launch/load_virtual_reflex.launch">
+    <arg name="rviz" value="False" />
+    <arg name="virtual_ns" value="ref2"/>
+    <arg name="parent_tf" value="/mdn_mean_2"/>
+  </include>
+</launch>

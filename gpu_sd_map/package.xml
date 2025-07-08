@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gpu_sd_map</name>
+  <version>0.0.0</version>
+  <description>Fast GPU based Signed Distance map generator for object placement in clutter. Implemented using pytorch.</description>
+
+  <maintainer email="mohanrajemails@gmail.com">Mohanraj DS</maintainer>
+  <license>TODO</license>
+  <url type="website">https://bitbucket.org/robot-learning/gpu_sd_map</url>
+
+  <author email="mohanrajemails@gmail.com">Mohanraj DS</author> -->
+
+  <depend>rospy</depend>
+  <depend>roscpp</depend>
+  <depend>message_generation</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <exec_depend>message_runtime</exec_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

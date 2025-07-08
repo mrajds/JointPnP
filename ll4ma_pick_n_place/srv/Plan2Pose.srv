@@ -1,0 +1,7 @@
+geometry_msgs/Pose pose
+bool constrained
+geometry_msgs/Quaternion target
+float32[] tolerances
+---
+bool success
+moveit_msgs/RobotTrajectory plan

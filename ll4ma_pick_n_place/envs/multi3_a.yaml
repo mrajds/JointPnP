@@ -1,0 +1,31 @@
+objects:
+   - mustard
+   - juice
+   - pringle
+
+mustard:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.05
+      y: 0.05
+
+juice:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.15
+      y: 0.15
+
+pringle:
+   orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+   position:
+      x: 0.3
+      y: 0.06

@@ -1,0 +1,7 @@
+string env_name
+string obj_id
+geometry_msgs/Point[] sparse_obj_grid
+float64[] obj_size
+geometry_msgs/Pose place_conf
+---
+bool success

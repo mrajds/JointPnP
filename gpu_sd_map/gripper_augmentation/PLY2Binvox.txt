@@ -1,0 +1,21 @@
+Target voxel pitch: 1 mm (Each voxel of size) i.e. 1000 voxels per sq. meter
+
+Base.ply
+________________________________________________________________________________________________________
+BB dimensions (in meters), obtained from meshlab -> render -> show box corners: 0.0926 x 0.1058 x 0.138
+Max_Dim = 0.138
+Voxel grid size = 138 x 138 x 138
+Binvox command: ./binvox -d 138 base.ply
+Output: base.binvox
+________________________________________________________________________________________________________
+
+
+
+Finger.ply
+________________________________________________________________________________________________________
+BB dimensions (in meters), obtained from meshlab -> render -> show box corners: 0.1291 x 0.0163 x 0.025
+Max_Dim = 0.1291
+Voxel grid size = 129 x 129 x 129
+Binvox command: ./binvox -d 129 finger.ply
+Output: finger.binvox
+________________________________________________________________________________________________________

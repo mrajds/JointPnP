@@ -1,0 +1,43 @@
+ll4ma_scene:
+  #env_mesh: "package://ll4ma_scene_description/data/meshes/table.stl"
+
+  env_mesh:
+    - "package://ll4ma_pick_n_place/meshes/table.ply"
+    - "package://ll4ma_pick_n_place/meshes/in_hand_table.ply"
+    #- "package://multiobject_spatial_placement_planner/meshes/table.ply"
+    
+  reach_mesh: "package://ll4ma_robots_description//meshes/allegro/reachability/voxel_palm_v1.stl"
+  
+  obj_mesh: "package://ll4ma_scene_description/data/meshes/soft_scrub.stl"
+
+  reach_pose:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    
+  env_pose:
+    - -0.8 #x
+    - 0 #y
+    - -0.295 #z
+    - 0 #Rx (euler rpy
+    - 0 #Ry
+    - 0 #Rz
+
+  obj_pose:
+    - -0.65 #x -0.65
+    - -0.18 #y # -0.1
+    - 0.28 #z # 0.13
+    - -1.5 #Rx (euler rpy
+    - 0.0 #Ry
+    - 0.0 #Rz
+    
+  obj_pose_offset:
+    - -0.0 #x -0.65
+    - -0.0 #y # -0.1
+    - 0.0 #z # 0.13
+    - 0.0 #Rx (euler rpy
+    - 0.0 #Ry
+    - 0.0 #Rz

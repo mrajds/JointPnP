@@ -9,6 +9,8 @@ Code for Joint pick and place planning paper https://doi.org/10.1109/LRA.2024.33
 ## Installation:
 1. Clone this repo to a catkin workspace
 2. Build using catkin tools.
+3. Copy reflex grasp models from [Hugging Face](https://huggingface.co/ll4ma-lab/ReflexGraspModels) into prob_grasp_planner/model.
+4. Update model paths in prob_grasp_planner/src/prob_grasp_planner/grasp_voxel_planner/
 
 ## Sub-Modules:
 1. ll4ma_pick_n_place - Defines the pick and place optimization problems

@@ -1,5 +1,5 @@
 # JointPnP
-Code for Joint pick and place planning paper https://doi.org/10.1109/LRA.2024.3360892
+Code for ["Pick and Place Planning is Better Than Pick Planning Then Place Planning"](https://doi.org/10.1109/LRA.2024.3360892), IEEE RA-L 2024
 
 ## Dependencies:
 - ROS Noetic
